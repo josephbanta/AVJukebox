@@ -545,7 +545,7 @@ public class TrackListActivity extends android.support.v7.app.ActionBarActivity 
                         }
                     }
 
-                    boolean anyListedStreamPlaying= false;
+                    boolean anyListedStreamPlayingOrPaused = false;
                     for (String id : this.mediaPlayerStreamState.keySet()) {
                         java.util.HashMap thisStreamInfo = this.mediaPlayerStreamState.get(id);
                         MediaPlayerService.StreamState streamState = (MediaPlayerService.StreamState)(thisStreamInfo.get("state"));
@@ -557,15 +557,16 @@ public class TrackListActivity extends android.support.v7.app.ActionBarActivity 
                             || (streamState == MediaPlayerService.StreamState.FADING_IN)
                             || (streamState == MediaPlayerService.StreamState.PLAYING)
                             || (streamState == MediaPlayerService.StreamState.FADING_OUT_PRIOR_TO_PAUSE)
-                            || (streamState == MediaPlayerService.StreamState.FADING_OUT) ) )
+                            || (streamState == MediaPlayerService.StreamState.FADING_OUT)
+                            || (streamState == MediaPlayerService.StreamState.PAUSED) ) )
                         {
-                            anyListedStreamPlaying = true;
+                            anyListedStreamPlayingOrPaused = true;
                         }
                     }
 
                     if ( (resumedFromSavedInstance == false)
                       && (autoPlayFirstTriggerred == true)
-                      && (anyListedStreamPlaying == false) )
+                      && (anyListedStreamPlayingOrPaused == false) )
                     {
                         // we just reloaded the listview and auto-play is enabled, but none of the listed tracks are already playing, so
                         // play the first listed track
