@@ -1,0 +1,13 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.josephbanta.avjukebox.TrackListActivity.SearchResultsFragment">
+    <ListView
+        android:id="@+id/listview_search_results"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="#777777"
+        android:dividerHeight="1px" />
+    <!--android:divider="@null"-->
+</FrameLayout>

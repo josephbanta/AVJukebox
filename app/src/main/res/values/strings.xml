@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">A/V Jukebox</string>
+    <string name="action_settings">Settings</string>
+    <string name="whats_happening_listening">Listening: </string>
+    <string name="whats_happening_searching">Searching for: </string>
+    <string name="whats_happening_found">Found: </string>
+    <string name="no_tracks_found">No tracks found</string>
+    <string name="what_do_you_want">What do you want to hear?</string>
+    <string name="what_do_you_want_hint">(name an artist, a track title, or a genre)</string>
+    <string name="player_service_label">Media Player Service</string>
+    <string name="recog_service_label">Speech Recognition Service</string>
+    <string name="recog_service_started">Speech Recognition Service started</string>
+    <string name="recog_service_stopped">Speech Recognition Service stopped</string>
+    <string name="recog_service_connected">Speech Recognition Service connected</string>
+    <string name="recog_service_disconnected">Speech Recognition Service disconnected</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_search_results">Search Results</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Label for the autoplay preference [CHAR LIMIT=30] -->
+    <string name="pref_autoplay_label">Auto-Play</string>
+
+    <!-- Key name for storing autoplay in SharedPreferences [CHAR LIMIT=NONE] -->
+    <string name="pref_autoplay_key" translatable="false">autoplay</string>
+
+    <!-- Label for the autoplaynext preference [CHAR LIMIT=30] -->
+    <string name="pref_autoplay_next_label">Auto-Play Next</string>
+
+    <!-- Key name for storing autoplaynext in SharedPreferences [CHAR LIMIT=NONE] -->
+    <string name="pref_autoplay_next_key" translatable="false">autoplaynext</string>
+    <string name="pref_autoplay_true">Enabled</string>
+    <string name="pref_autoplay_false">Not Enabled</string>
+    <string name="pref_autoplay_default" translatable="false">true</string>
+    <string name="pref_autoplay_next_default" translatable="false">true</string>
+    <string name="pref_one_clip_at_a_time_label">One clip at a time</string>
+    <string name="pref_one_clip_at_a_time_key" translatable="false">oneClipAtATime</string>
+    <string name="pref_one_clip_at_a_time_false">Not Enabled</string>
+    <string name="pref_one_clip_at_a_time_true">Enabled</string>
+    <string name="pref_one_clip_at_a_time_default" translatable="false">true</string>
+    <string name="pref_fade_in_out_label">Fade clips in/out</string>
+    <string name="pref_fade_in_out_key" translatable="false">fadeInOut</string>
+    <string name="pref_fade_in_out_false">Not Enabled</string>
+    <string name="pref_fade_in_out_true">Enabled</string>
+    <string name="pref_fade_in_out_default" translatable="false">true</string>
+    <string name="title_activity_imagery">Imagery</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+</resources>

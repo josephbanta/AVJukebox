@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="mainViewGroupPassiveBackgroundColor">#ffade6ff</color>
+    <color name="mainViewGroupActiveBackgroundColor">#FFFFEA74</color>
+    <color name="mainViewGroupSearchingBackgroundColor">#FFFFBFFF</color>
+    <color name="mainViewGroupRecognizedBackgroundColor">#FF76FF66</color>
+    <color name="mainViewGroupInactiveBackgroundColor">#FF868686</color>
+    <color name="sunshine_light_blue">#ff64c2f4</color>
+    <color name="black_overlay">#66000000</color>
+
+</resources>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<!--
+    <EditTextPreference
+        android:title="@string/pref_location_label"
+        android:key="@string/pref_location_key"
+        android:defaultValue="@string/pref_location_default"
+        android:inputType="text"
+        android:singleLine="true" />
+
+    <ListPreference
+        android:title="@string/pref_units_label"
+        android:key="@string/pref_units_key"
+        android:defaultValue="@string/pref_units_metric"
+        android:entryValues="@array/pref_units_values"
+        android:entries="@array/pref_units_options" />
+-->
+    <CheckBoxPreference
+        android:title="@string/pref_autoplay_label"
+        android:key="@string/pref_autoplay_key"
+        android:summaryOff="@string/pref_autoplay_false"
+        android:summaryOn="@string/pref_autoplay_true"
+        android:defaultValue="@string/pref_autoplay_default" />
+    <CheckBoxPreference
+        android:title="@string/pref_autoplay_next_label"
+        android:key="@string/pref_autoplay_next_key"
+        android:summaryOff="@string/pref_autoplay_false"
+        android:summaryOn="@string/pref_autoplay_true"
+        android:defaultValue="@string/pref_autoplay_next_default" />
+    <CheckBoxPreference
+        android:title="@string/pref_one_clip_at_a_time_label"
+        android:key="@string/pref_one_clip_at_a_time_key"
+        android:summaryOff="@string/pref_one_clip_at_a_time_false"
+        android:summaryOn="@string/pref_one_clip_at_a_time_true"
+        android:defaultValue="@string/pref_one_clip_at_a_time_default" />
+    <CheckBoxPreference
+        android:title="@string/pref_fade_in_out_label"
+        android:key="@string/pref_fade_in_out_key"
+        android:summaryOff="@string/pref_fade_in_out_false"
+        android:summaryOn="@string/pref_fade_in_out_true"
+        android:defaultValue="@string/pref_fade_in_out_default" />
+
+</PreferenceScreen>
