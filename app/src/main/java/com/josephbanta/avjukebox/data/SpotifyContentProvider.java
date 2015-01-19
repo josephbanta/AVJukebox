@@ -47,6 +47,7 @@ public class SpotifyContentProvider extends android.content.ContentProvider
         org.json.JSONArray trackArray = null;
         java.util.ArrayList<java.util.ArrayList> rows = null;
         try {
+          if (json != null) {
             org.json.JSONObject jsonResponse = new org.json.JSONObject(json);
             org.json.JSONObject tracks = jsonResponse.getJSONObject("tracks");
             trackArray = tracks.getJSONArray("items");
@@ -109,6 +110,7 @@ public class SpotifyContentProvider extends android.content.ContentProvider
 
                 com.josephbanta.avjukebox.ImageryActivity.setSavedUrls(savedImageUrls);
             }
+          }
         } catch (org.json.JSONException jsonException) {
             android.util.Log.d(LOG_TAG, "Error parsing JSON: " + jsonException);
         }
