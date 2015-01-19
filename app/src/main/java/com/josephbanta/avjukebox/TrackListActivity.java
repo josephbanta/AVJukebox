@@ -1,6 +1,7 @@
 package com.josephbanta.avjukebox;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -426,23 +427,52 @@ public class TrackListActivity extends android.support.v7.app.ActionBarActivity 
         public void onLoadFinished(Loader<Cursor> cursorLoader, Cursor cursor) {
             cursorAdapter.swapCursor(cursor);
 
-            android.content.SharedPreferences defaultSharedPrefs = android.preference.PreferenceManager.getDefaultSharedPreferences(getActivity());
-            if ( (cursor.getCount() > 0)
-              && (defaultSharedPrefs.getBoolean(getString(R.string.pref_autoplay_key), true)) )
-            {
-                //queueClipForPlayback(0);
-                autoPlayFirstTriggerred = true;
-            }
+            if (cursor.getCount() == 0) {
+                final Activity encapsulatingActivity = getActivity();
+                android.app.AlertDialog.Builder alertDialogBuilder
+                        = (new android.app.AlertDialog.Builder(getActivity()))
+                            .setTitle("No matching tracks")
+                            .setMessage("Your query '" + this.queryText + "' did not match any tracks.")
+                            .setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    encapsulatingActivity.finish();
+                                }
+                            });
+                android.app.AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                    @Override
+                    public void onDismiss(DialogInterface dialog) {
+                        encapsulatingActivity.finish();
+                    }
+                });
+                alertDialog.show();
 
-            // resync the ui with the actual status of the streams in the player service; this is done by querying the service
-            // for the status of all of its playing streams.  The reply will be handled asynchronously in
-            // handleMessageFromMediaPlayerService()
-            try {
-                sendMessageToMediaPlayerService(MediaPlayerService.MessagesToService.QUERY_STATUS);
-            } catch (android.os.RemoteException remoteException) {
-                android.util.Log.d(LOG_TAG, "Exception querying player service for status: " + remoteException);
-            } catch (java.io.NotActiveException notActiveException) {
-                android.util.Log.d(LOG_TAG, "Exception querying player service for status: " + notActiveException);
+                //Intent i = new Intent();
+                //i.setAction(Intent.ACTION_MAIN);
+                //i.addCategory(Intent.CATEGORY_HOME);
+                //i.putExtra("no results", true);
+                //encapsulatingActivity.startActivity(i);
+
+            }
+            else {
+                android.content.SharedPreferences defaultSharedPrefs = android.preference.PreferenceManager.getDefaultSharedPreferences(getActivity());
+                if ((cursor.getCount() > 0)
+                        && (defaultSharedPrefs.getBoolean(getString(R.string.pref_autoplay_key), true))) {
+                    //queueClipForPlayback(0);
+                    autoPlayFirstTriggerred = true;
+                }
+
+                // resync the ui with the actual status of the streams in the player service; this is done by querying the service
+                // for the status of all of its playing streams.  The reply will be handled asynchronously in
+                // handleMessageFromMediaPlayerService()
+                try {
+                    sendMessageToMediaPlayerService(MediaPlayerService.MessagesToService.QUERY_STATUS);
+                } catch (android.os.RemoteException remoteException) {
+                    android.util.Log.d(LOG_TAG, "Exception querying player service for status: " + remoteException);
+                } catch (java.io.NotActiveException notActiveException) {
+                    android.util.Log.d(LOG_TAG, "Exception querying player service for status: " + notActiveException);
+                }
             }
 
             if (this.progressDialog != null) {
