@@ -465,7 +465,7 @@ public class TrackListActivity extends android.support.v7.app.ActionBarActivity 
             Integer position = null;
 
             android.database.Cursor cursor = cursorAdapter.getCursor();
-            if (cursor != null) {
+            if ((cursor != null) && (cursor.getCount() > 0)) {
                 for (cursor.moveToFirst(); true; cursor.moveToNext()) {
                     String thisRecordPreviewUrl = cursor.getString(cursor.getColumnIndex("id"));
                     if (thisRecordPreviewUrl.equals(clipId)) {
